@@ -42,13 +42,14 @@ public class GuestsList {
 
         if (registeredGuests.size() < event.getEventCapacity()) {
             registeredGuests.add(newGuest);
-            System.out.printf("[%s %s] Felicitari! Locul tau la eveniment este confirmat. Te asteptam!%n",
+            System.out.printf(
+                    "[%s %s] Congratulations! Your booking at the event is confirmed. We are waiting for you!%n",
                     newGuest.getLastName(), newGuest.getFirstName());
         } else {
             waitingGuests.add(newGuest);
             System.out.printf(
-                    "Te-ai inscris cu succes in lista de asteptare si ai primit numarul "
-                            + "de ordine %d. Te vom notifica daca un loc devine disponibil%n",
+                    "You have successfully signed up for the event. I got number %d "
+                            + "in the queue. We will let you know if a place becomes available%n",
                     waitingGuests.indexOf(newGuest) + 1);
         }
         return 0;
@@ -70,7 +71,7 @@ public class GuestsList {
                 waitingGuests.remove(movedGuest);
                 // maybe make null the removed elements
                 registeredGuests.add(movedGuest);
-                System.out.printf("%s este inscris la eveniment cu succes%n", movedGuest.getEmail());
+                System.out.printf("%s successfully booked the event%n", movedGuest.getEmail());
             }
             return true;
         }
@@ -151,14 +152,14 @@ public class GuestsList {
     }
 
     public List<Guest> listOfGuests() {
-        if(registeredGuests.isEmpty())
-            System.out.println("Niciun participant inscris");
+        if (registeredGuests.isEmpty())
+            System.out.println("No guests");
         return registeredGuests;
     }
 
     public List<Guest> listOfWaitingGuests() {
-        if(waitingGuests.isEmpty())
-            System.out.println("Lista de asteptare este goala...");
+        if (waitingGuests.isEmpty())
+            System.out.println("No guests on waiting list...");
         return waitingGuests;
     }
 

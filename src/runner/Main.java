@@ -16,18 +16,18 @@ import backend.GuestsList;
 public class Main {
     private static Scanner kb = new Scanner(System.in);;
 
-    private static final String ADD = "-Adauga o noua persoana (inscriere)";
-    private static final String CHECK = "-Verifica daca o persoana este inscrisa la eveniment";
-    private static final String REMOVE = "-Sterge o persoana existenta din lista";
-    private static final String UPDATE = "-Actualizeaza detaliile unei persoane";
-    private static final String GUESTS = "-Lista de persoane care participa la eveniment";
-    private static final String WAITLIST = "-Persoanele din lista de asteptare";
-    private static final String AVAILABLE = "-Numarul de locuri libere";
-    private static final String GUEST_NO = "-Numarul de persoane care participa la eveniment";
-    private static final String WAITLIST_NO = "-Numarul de persoane din lista de asteptare";
-    private static final String SUBSCRIBE_NO = "-Numarul total de persoane inscrise";
-    private static final String SEARCH = "-Cauta toti invitatii conform sirului de caractere introdus";
-    private static final String QUIT = "-Inchide aplicatia";
+    private static final String ADD = "-Add new person (sign up)";
+    private static final String CHECK = "-Check if a person sign up for the event";
+    private static final String REMOVE = "-Delete an existing person from the list";
+    private static final String UPDATE = "-Update person information";
+    private static final String GUESTS = "-List of sign up persons";
+    private static final String WAITLIST = "-Persons on waiting list";
+    private static final String AVAILABLE = "-Available tickets";
+    private static final String GUEST_NO = "-Number of persons on guests list";
+    private static final String WAITLIST_NO = "-Number of persons on waiting list";
+    private static final String SUBSCRIBE_NO = "-Total number of guests";
+    private static final String SEARCH = "-Search for guests based on given criteria";
+    private static final String QUIT = "-Close the app";
     private static final String FORMAT = "%-14s%s%n";
 
     private static GuestsList gl;
@@ -132,9 +132,9 @@ public class Main {
 
         Guest g = check();
         if (g != null) {
-            System.out.println("Se sterge o persoana existenta din lista:");
+            System.out.println("Deleting the existing person from the list:");
             gl.removeGuest(g);
-            System.out.println("Stergerea s-a realizat cu succes");
+            System.out.println("Successful deleting");
             return true;
         }
         return false;
@@ -154,21 +154,21 @@ public class Main {
     }
 
     private static void availableSeats() {
-        System.out.printf("Numarul de locuri ramase: %d%n", gl.availableSeats());
+        System.out.printf("Available tickets: %d%n", gl.availableSeats());
     }
 
     private static void guestNo() {
 
-        System.out.printf("Numarul de participanti: %d%n", gl.noOfGuests());
+        System.out.printf("Number of guests: %d%n", gl.noOfGuests());
 
     }
 
     private static void waitlistNo() {
-        System.out.printf("Dimensiunea listei de asteptare: %d%n", gl.noOfWaitingGuests());
+        System.out.printf("Number of guests on waiting lists: %d%n", gl.noOfWaitingGuests());
     }
 
     private static void subscribeNo() {
-        System.out.printf("Numarul total de persoane: %d%n", gl.totalGuests());
+        System.out.printf("Total number of guests: %d%n", gl.totalGuests());
     }
 
     private static void search() {
